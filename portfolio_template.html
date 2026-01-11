@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | 2026 Interview Edition</title>
+    <style>
+        :root {
+            --bg: #030712;
+            --accent: #22d3ee; /* Cyan */
+            --card-bg: rgba(15, 23, 42, 0.6);
+            --text-main: #f8fafc;
+            --text-dim: #94a3b8;
+            --future-accent: #f472b6;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg);
+            /* Animated Cyan Mesh Background */
+            background: radial-gradient(circle at 80% 20%, #0e749033 0%, var(--bg) 50%),
+                        radial-gradient(circle at 20% 80%, #164e6333 0%, transparent 50%);
+            background-attachment: fixed;
+            color: var(--text-main);
+            line-height: 1.6;
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        /* --- PROFILE & BIO SECTION --- */
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin-bottom: 6rem;
+        }
+
+        .profile-frame {
+            position: relative;
+            width: 180px;
+            height: 180px;
+            margin-bottom: 1.5rem;
+        }
+
+        /* The glowing ring animation */
+        .profile-frame::before {
+            content: '';
+            position: absolute;
+            top: -5px; left: -5px; right: -5px; bottom: -5px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, var(--accent), transparent, var(--future-accent));
+            z-index: -1;
+            animation: rotateGlow 4s linear infinite;
+        }
+
+        /* NEW CSS FOR THE GG LOGO */
+        .profile-logo {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 4px solid var(--bg);
+            background: #1e293b; /* Dark background for contrast */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+            /* Typography styling */
+            font-size: 4rem;
+            font-weight: 900;
+            letter-spacing: -3px;
+            /* Gradient text fill */
+            background: linear-gradient(135deg, #ffffff, var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero h1 { 
+            font-size: 3.5rem; 
+            margin: 0.5rem 0; 
+            letter-spacing: -2px;
+            background: linear-gradient(to right, #fff, var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .bio-box {
+            max-width: 600px;
+            margin-top: 1rem;
+            padding: 1.5rem;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .bio-box p {
+            color: var(--text-dim);
+            font-size: 1.1rem;
+            margin: 0;
+        }
+
+        /* --- PROJECTS SECTION --- */
+        section { margin-bottom: 5rem; }
+
+        h2 {
+            font-size: 1.4rem;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--accent);
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+        }
+
+        .card.future:hover { border-color: var(--future-accent); }
+
+        .tag {
+            font-size: 0.7rem;
+            padding: 0.3rem 0.7rem;
+            border-radius: 6px;
+            background: rgba(34, 211, 238, 0.1);
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        .future .tag { color: var(--future-accent); background: rgba(244, 114, 182, 0.1); }
+
+        /* --- ANIMATIONS --- */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes rotateGlow {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 2.5rem; }
+            .profile-logo { font-size: 3rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header class="hero">
+        <div class="profile-frame">
+            <div class="profile-logo">GG</div>
+        </div>
+        <span style="color: var(--accent); letter-spacing: 3px; font-weight: bold; font-size: 0.8rem;">Software Developer</span>
+        <h1>Gaurav Gupta</h1>
+        
+        <div class="bio-box">
+            <p>
+                Hi! I'm a developer focused on building high-performance web systems. 
+                With 3+ years of experience in React and Rust, I enjoy turning complex data into 
+                beautiful, user-centric experiences. Currently exploring the future of AI-driven interfaces.
+            </p>
+        </div>
+    </header>
+
+    <section id="past">
+        <h2><span>01.</span> Past & Present Work</h2>
+        <div class="project-grid">
+            <div class="card">
+                <span class="tag">Web App</span>
+                <h3>Solaris Finance</h3>
+                <p>A personal finance tracker with local-first storage. Optimized for speed and privacy.</p>
+                <a href="#" style="color: var(--accent); text-decoration: none; font-weight: bold;">View Details →</a>
+            </div>
+            
+            <div class="card">
+                <span class="tag">System</span>
+                <h3>Retro Emulator</h3>
+                <p>Low-level Gameboy emulation written in Rust to master memory management.</p>
+                <a href="#" style="color: var(--accent); text-decoration: none; font-weight: bold;">GitHub →</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="future">
+        <h2><span>02.</span> Future Vision</h2>
+        <div class="project-grid">
+            <div class="card future">
+                <span class="tag">R&D</span>
+                <h3>Ethical Echo</h3>
+                <p>A concept for AI transparency tools to help users identify manipulative web design patterns.</p>
+            </div>
+            <div class="card future">
+                <span class="tag">Hobby</span>
+                <h3>Split Keyboard</h3>
+                <p>Design and assembly of a custom split mechanical keyboard with custom firmware.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer style="text-align: center; color: var(--text-dim); font-size: 0.8rem; margin-top: 5rem;">
+        &copy; 2026 Gaurav Gupta — Built for the next big thing.
+    </footer>
+</div>
+
+</body>
+</html>
